@@ -55,6 +55,8 @@ int main()
 	buffer[recvLen]='\0';
 	printf("%s\n", buffer);
 	close(nfd);
+	char message[]="thank you";
+	send(nfd, message, strlen(message), 0);
 	return 0;
 }
 	

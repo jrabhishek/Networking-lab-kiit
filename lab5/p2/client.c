@@ -45,16 +45,14 @@ int main()
 
     int len = sizeof(clientAddr);
 
-    char message[]="hellow kiit";
-    
+    char message[]="welcome kiit";
     send(sfd, message, strlen(message), 0);
-    char buffer[100];
-    int recvLen = recv(sfd, buffer, 100, 0);
 
-    buffer[recvLen] = '\0';
-    printf("%s\n", buffer);
-    close(sfd);
+    int buffer;
+    int recvLen = recv(sfd, &buffer, sizeof(int), 0);
 
+    
+    printf("%d\n", buffer);
 
     return 0;
 }
