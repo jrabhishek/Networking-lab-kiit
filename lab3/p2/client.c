@@ -14,7 +14,6 @@ int main()
 
     cfd = socket(AF_INET, SOCK_DGRAM, 0);
 
-    char message[100];
     char buffer[100];
     if (cfd == -1)
     {
@@ -49,15 +48,12 @@ int main()
         else
         {
             printf("Client Binding Succesfully.\n");
-            // printf("Enter the message for server: ");
-            // scanf("%s", message);
-            // sendto(cfd, (char *)message, strlen(message), 0, (struct sockaddr *)&serveraddr, len);
+            
 
             len = sizeof(serveraddr);
-            //int r =
              recvfrom(cfd, (char *)buffer, 100, 0, (struct sockaddr *)&serveraddr, &len);
 
-            //buffer[r] = '\0';
+            
             printf("%s", buffer);
             close(cfd);
         }

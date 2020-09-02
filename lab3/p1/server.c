@@ -14,8 +14,6 @@ int main()
 
     char buffer[100];
 
-    char message[100];
-
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
 
     if (sfd == -1)
@@ -50,11 +48,9 @@ int main()
             buffer[r] = '\0';
 
             printf("%s", buffer);
+            close(sfd);
 
-            // len = sizeof(serveraddr);
-            // printf("Enter the message for server: ");
-            // scanf("%s", message);
-            // sendto(sfd, (char *)message, strlen(message), 0, (struct sockaddr *)&clientaddr, len);
+           
         }
     }
 

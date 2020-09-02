@@ -11,9 +11,6 @@
 int main()
 {
     int sfd;
-
-    char buffer[100];
-
     char message[100];
 
     sfd = socket(AF_INET, SOCK_DGRAM, 0);
@@ -46,13 +43,7 @@ int main()
         }
         else
         {
-            // printf("Server Binding Succesfully.\n");
-            // int len = sizeof(clientaddr);
-            //  recvfrom(sfd, (char *)buffer, 100, 0, (struct sockaddr *)&clientaddr, &len);
-
-            // //buffer[r] = '\0';
-
-            // printf("%s", buffer);
+            
 
             int len = sizeof(serveraddr);
             printf("Enter the message for server: ");

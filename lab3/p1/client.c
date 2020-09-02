@@ -15,7 +15,6 @@ int main()
     cfd = socket(AF_INET, SOCK_DGRAM, 0);
 
     char message[100];
-    char buffer[100];
     if (cfd == -1)
     {
         printf("Client Socket Not Created.\n");
@@ -52,12 +51,9 @@ int main()
             printf("Enter the message for server: ");
             scanf("%s", message);
             sendto(cfd, (char *)message, strlen(message), 0, (struct sockaddr *)&serveraddr, len);
+            close(cfd);
 
-            // len = sizeof(serveraddr);
-            // int r = recvfrom(cfd, (char *)buffer, 100, 0, (struct sockaddr *)&serveraddr, &len);
-
-            // buffer[r] = '\0';
-            // printf("%s", buffer);
+        
         }
     }
 
