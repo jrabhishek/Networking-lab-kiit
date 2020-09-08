@@ -13,7 +13,7 @@ Q2) Write a program to pass a string from client to server. Display the string i
 Q3) Write a program to pass an integer array from client to server and print the array in server side.<br>
 Q4) Write a program to pass an integer array from client to server. Determine the greatest element on the server side and print it in the client side.<br>
 </p>
-<b><h1>Lab4</h1></b>
+<b><h1>Lab5</h1></b>
 <p>
 Tcp
 
