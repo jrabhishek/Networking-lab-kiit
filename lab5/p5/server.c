@@ -54,16 +54,22 @@ int main()
     int recvLen = recv(nfd, buffer, 100, 0);
     
     int l = recvLen/sizeof(int);
-    int i=0,sum=0;
+    int i=0,max =INT_MIN,smax=INT_MIN;
 
     printf("elements are:\n");
     for (i = 0; i < l; i++)
     {
         printf("%d\n",buffer[i]);
-        sum +=buffer[i];
+        if (buffer[i] > max)
+            {
+                smax = max;
+                max=buffer[i];
+            }
+         else if (buffer[i]>smax)
+                smax = buffer[i];
             
      }
-    send(nfd, &sum, sizeof(max), 0);
+    send(nfd, &smax, sizeof(max), 0);
     close(nfd);
 
 

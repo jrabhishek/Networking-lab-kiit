@@ -44,17 +44,22 @@ int main()
     }
 
     int len = sizeof(clientAddr);
+    int n;
 
-    char message[100];
-    printf("Enter the string\t");
-    scanf(" %[^\n]", message);
-    send(sfd, message, strlen(message), 0);
+    
+    printf("Enter the lenght of array");
+    scanf(" %d", &n);
+    printf("enter elements of array");
+    int arr[n],i;
+    for(i=0;i<n;i++){
+        scanf("%d",(arr+i));
+    }
+    send(sfd, arr, sizeof(arr), 0);
+    int buffer;
+    recv(sfd, &buffer, sizeof(buffer), 0);
+    printf("%d",buffer);
 
-    char buffer[100];
-    int recvLen = recv(sfd, buffer, 100, 0);
-
-    buffer[recvLen] = '\0';
-    printf("%s\n", buffer);
+    close(sfd);
 
     return 0;
 }

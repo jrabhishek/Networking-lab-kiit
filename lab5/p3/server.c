@@ -39,7 +39,7 @@ int main()
         exit(0);
     }
 
-    int buffer[100];
+    char buffer[100];
     struct sockaddr_in clientAddr;
     int len = sizeof(clientAddr);
 
@@ -51,15 +51,23 @@ int main()
     }
 
     int recvLen = recv(nfd, buffer, 100, 0);
-    int l = recvLen/sizeof(int);
-    int i=0;
 
-    printf("elements are:\n");
-    for(i=0;i<l;i++){
-        printf("%d\n",buffer[i]);
+    buffer[recvLen] = '\0';
+    printf("%s\n", buffer);
+    int i,ispall=0;
+    char message[100] = "String is  pallindrome";
+    for(i=0;i<recvLen/2;i++){
+        if(buffer[i]!=buffer[recvLen-1-i])
+        {
+            ispall =1;
+            break;
+        }
     }
-    close(nfd);
 
-   
+    
+    if(ispall==1)
+      strcpy(message,"string is not pallindrome");
+    
+    send(nfd, message, strlen(message), 0);
     return 0;
 }
