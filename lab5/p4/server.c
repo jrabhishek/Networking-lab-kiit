@@ -63,7 +63,7 @@ int main()
         sum +=buffer[i];
             
      }
-    send(nfd, &sum, sizeof(max), 0);
+    send(nfd, &sum, sizeof(sum), 0);
     close(nfd);
 
 
